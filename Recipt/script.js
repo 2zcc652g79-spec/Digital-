@@ -8,10 +8,10 @@
 // Simulates authentic banking verification & processing delay with circulating logo
 // ============================================================================
 (function initCBELoader() {
-  // Parse optional custom delay from URL parameters (e.g. ?delay=3000) or default to 2200ms
+  // Parse optional custom delay from URL parameters (e.g. ?delay=3000) or default to 1200ms
   const urlParams = new URLSearchParams(window.location.search);
   const queryDelay = parseInt(urlParams.get('delay'), 10);
-  const defaultDelay = (!isNaN(queryDelay) && queryDelay >= 0) ? queryDelay : 2200;
+  const defaultDelay = (!isNaN(queryDelay) && queryDelay >= 0) ? queryDelay : 1200;
 
   function dismissLoader() {
     const loader = document.getElementById('cbeLoader');
