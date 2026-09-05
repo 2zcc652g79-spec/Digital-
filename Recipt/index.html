@@ -19,6 +19,18 @@
 <body>
 
   <!-- ==========================================================================
+       OFFICIAL CBE PROCESSOR CIRCULATING LOGO LOADER
+       Exact match to mbreciept.cbe.com.et:
+       No surrounding circles - circulating CBE logo & "Loading Recipt" slogan
+       ========================================================================== -->
+  <div id="cbeLoader" class="cbe-loader-overlay" aria-live="polite" role="status">
+    <div class="cbe-loader-container">
+      <img src="assets/cbe.webp" alt="Commercial Bank of Ethiopia" class="cbe-circulating-logo" />
+      <p class="cbe-loading-slogan">Loading Recipt<span class="cbe-dots">...</span></p>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
        MAIN RECEIPT PAGE CONTAINER
        Responsive: fits full-width on mobile, max-w-3xl (768px) on tablet/desktop
        ========================================================================== -->
@@ -31,8 +43,8 @@
            ====================================================================== -->
       <header class="receipt-header">
 
-        <!-- Official CBE Logo Emblem -->
-        <div class="header-logo-container">
+        <!-- Official CBE Logo Emblem (Clickable to replay loading animation for instructor demo) -->
+        <div class="header-logo-container" onclick="if(window.simulateCBELoader) window.simulateCBELoader(2200);" title="Click to replay CBE loading animation">
           <img src="assets/cbe.webp" alt="Commercial Bank of Ethiopia Emblem" class="cbe-emblem" />
         </div>
 
@@ -250,7 +262,7 @@
                 <tr>
                   <td class="tx-lbl">Payment Date &amp; Time:</td>
                   <!-- INPUT: Payment Date & Time -->
-                  <td class="tx-val">Sep 4, 2026, 09:34 PM</td>
+                  <td class="tx-val">Sep 4, 2026, 10:27 PM</td>
                 </tr>
 
                 <!-- ROW 7: Reference No. (VAT Invoice No) -->
@@ -345,6 +357,14 @@
       Download PDF
     </button>
   </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="toast-notification" role="alert" aria-live="assertive">
+    <span id="toastMessage"></span>
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script src="script.js"></script>
 
 </body>
 
