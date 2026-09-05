@@ -745,27 +745,31 @@ body {
 /* ==========================================================================
    OFFICIAL CBE PROCESSOR CIRCULATING LOGO LOADER
    Exact match to mbreciept.cbe.com.et:
-   No surrounding circles - pure circulating CBE logo + "Loading Recipt" slogan
+   Frosted background effect, compact size, authentic font-weight & lowercase "recipt"
    ========================================================================== */
 .cbe-loader-overlay {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #ffffff;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.96) 30%, rgba(243, 244, 246, 0.92) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999999;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s ease;
+  transition: opacity 0.35s ease, backdrop-filter 0.35s ease, visibility 0.35s ease;
   user-select: none;
 }
 
 .cbe-loader-overlay.cbe-loader-hidden {
   opacity: 0;
   visibility: hidden;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
   pointer-events: none;
 }
 
@@ -775,19 +779,19 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 16px;
+  gap: 10px;
 }
 
-/* Official CBE Logo - Circulating 360deg with NO circle/borders around it */
+/* Official CBE Logo - Circulating 360deg with exact authentic compact dimensions */
 .cbe-circulating-logo {
-  width: 80px;
-  height: 80px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   border-radius: 0 !important;
-  animation: cbeLogoCirculate 1.6s linear infinite;
+  animation: cbeLogoCirculate 1.4s linear infinite;
   display: block;
 }
 
@@ -800,12 +804,12 @@ body {
   }
 }
 
-/* Official Slogan: "Loading Recipt" */
+/* Official Slogan: "Loading recipt" - Exact font weight (500 / medium) */
 .cbe-loading-slogan {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--cbe-primary, #83257a);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   margin: 0;
   padding: 0;
   font-family: inherit;
