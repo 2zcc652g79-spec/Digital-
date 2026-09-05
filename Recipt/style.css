@@ -743,6 +743,128 @@ body {
 }
 
 /* ==========================================================================
+   OFFICIAL CBE PROCESSOR CIRCULATING LOGO LOADER
+   Exact match to mbreciept.cbe.com.et:
+   No surrounding circles - pure circulating CBE logo + "Loading Recipt" slogan
+   ========================================================================== */
+.cbe-loader-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s ease;
+  user-select: none;
+}
+
+.cbe-loader-overlay.cbe-loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cbe-loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+}
+
+/* Official CBE Logo - Circulating 360deg with NO circle/borders around it */
+.cbe-circulating-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  animation: cbeLogoCirculate 1.6s linear infinite;
+  display: block;
+}
+
+@keyframes cbeLogoCirculate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Official Slogan: "Loading Recipt" */
+.cbe-loading-slogan {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cbe-primary, #83257a);
+  letter-spacing: -0.01em;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+.cbe-dots {
+  display: inline-block;
+  animation: cbeDotsPulse 1.4s infinite;
+}
+
+@keyframes cbeDotsPulse {
+  0%, 20% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+/* Interactive Replay Helper Cursor on Header Logo */
+.header-logo-container {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.header-logo-container:hover {
+  transform: scale(1.05);
+}
+
+.header-logo-container:active {
+  transform: scale(0.95);
+}
+
+/* Receipt entrance animation */
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background-color: rgba(17, 24, 39, 0.92);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10000;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
    PRINT / PDF MEDIA STYLES
    Ensures clean PDF generation without background noise or floating buttons
    ========================================================================== */
@@ -766,8 +888,11 @@ body {
     width: 100% !important;
   }
 
-  .download-bar {
+  .download-bar,
+  #cbeLoader,
+  .cbe-loader-overlay {
     display: none !important;
+    visibility: hidden !important;
   }
 
   .official-cbe-stamp {
